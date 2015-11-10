@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import sys
 import time
-from logo import print_seeedstudio
+#from logo import print_seeedstudio
 import Adafruit_BBIO.GPIO as GPIO
 
 CLK_PIN = "P9_22"
@@ -98,28 +99,10 @@ class ChainableLED():
 
 
 if __name__ == "__main__":
-    print_seeedstudio()
+    #print_seeedstudio()
+    red = int(sys.argv[1])
+    green = int(sys.argv[2])
+    blue = int(sys.argv[3])
 
     rgb_led = ChainableLED(CLK_PIN, DATA_PIN, NUMBER_OF_LEDS)
-    
-    while True:
-        rgb_led.setColorRGB(0, 255, 0, 0)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 0, 255, 0)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 0, 0, 255)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 0, 255, 255)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 255, 0, 255)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 255, 255, 0)
-        time.sleep(2)
-        rgb_led.setColorRGB(0, 255, 255, 255)
-        time.sleep(2)
-        
-        
-                
-                
-                
-                
+    rgb_led.setColorRGB(0, red, green, blue)
